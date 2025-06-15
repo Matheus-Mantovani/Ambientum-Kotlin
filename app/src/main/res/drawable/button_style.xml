@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+
+        <solid android:color="@android:color/transparent" /> <!-- Fundo transparente ou outra cor -->
+
+        <stroke android:width="2dp" android:color="#6200EE" /> <!-- Cor da borda -->
+
+        <corners android:radius="8dp" /> <!-- Arredondamento opcional -->
+    </shape>
+
+
+</selector>

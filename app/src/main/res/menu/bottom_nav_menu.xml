@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bnav_monitor"
+        android:icon="@drawable/monitor_image"
+        android:title="Monitor" />
+    <item
+        android:id="@+id/bnav_settings"
+        android:icon="@drawable/settings_image"
+        android:title="Settings" />
+</menu>
