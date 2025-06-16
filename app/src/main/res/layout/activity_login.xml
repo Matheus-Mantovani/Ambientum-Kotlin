@@ -50,7 +50,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_passwoord_container"
+        android:id="@+id/input_password_container"
         style="@style/CustomTextInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
         app:startIconDrawable="@drawable/password_image">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_passwoord"
+            android:id="@+id/input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -85,8 +85,8 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:cornerRadius="24dp"
-        app:layout_constraintEnd_toEndOf="@id/input_passwoord_container"
-        app:layout_constraintTop_toBottomOf="@id/input_passwoord_container" />
+        app:layout_constraintEnd_toEndOf="@id/input_password_container"
+        app:layout_constraintTop_toBottomOf="@id/input_password_container" />
 
     <ImageButton
         android:id="@+id/btn_back"
