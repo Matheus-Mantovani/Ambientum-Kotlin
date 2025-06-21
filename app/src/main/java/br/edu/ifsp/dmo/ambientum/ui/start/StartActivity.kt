@@ -1,9 +1,12 @@
-package br.edu.ifsp.dmo.ambientum
+package br.edu.ifsp.dmo.ambientum.ui.start
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.dmo.ambientum.databinding.ActivityStartBinding
+import br.edu.ifsp.dmo.ambientum.ui.login.LoginActivity
+import br.edu.ifsp.dmo.ambientum.ui.main.MainActivity
+import br.edu.ifsp.dmo.ambientum.ui.signup.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class StartActivity : AppCompatActivity() {

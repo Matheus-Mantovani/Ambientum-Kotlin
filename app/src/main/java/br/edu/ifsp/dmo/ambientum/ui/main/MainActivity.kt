@@ -1,9 +1,12 @@
-package br.edu.ifsp.dmo.ambientum
+package br.edu.ifsp.dmo.ambientum.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import br.edu.ifsp.dmo.ambientum.R
 import br.edu.ifsp.dmo.ambientum.databinding.ActivityMainBinding
+import br.edu.ifsp.dmo.ambientum.ui.monitor.MonitorFragment
+import br.edu.ifsp.dmo.ambientum.ui.settings.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

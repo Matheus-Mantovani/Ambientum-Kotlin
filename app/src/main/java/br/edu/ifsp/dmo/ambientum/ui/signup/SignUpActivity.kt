@@ -1,11 +1,12 @@
-package br.edu.ifsp.dmo.ambientum
+package br.edu.ifsp.dmo.ambientum.ui.signup
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.dmo.ambientum.databinding.ActivitySignUpBinding
+import br.edu.ifsp.dmo.ambientum.ui.start.StartActivity
+import br.edu.ifsp.dmo.ambientum.ui.main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
 

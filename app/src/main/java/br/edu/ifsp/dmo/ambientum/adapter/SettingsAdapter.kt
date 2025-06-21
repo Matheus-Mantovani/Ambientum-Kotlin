@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.edu.ifsp.dmo.ambientum.R
-import br.edu.ifsp.dmo.ambientum.model.SensorSetting
+import br.edu.ifsp.dmo.ambientum.data.model.SensorSetting
 import com.google.android.material.materialswitch.MaterialSwitch
 
 class SettingsAdapter(

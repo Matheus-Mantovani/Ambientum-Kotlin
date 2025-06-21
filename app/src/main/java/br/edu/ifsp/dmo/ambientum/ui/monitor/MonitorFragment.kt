@@ -1,13 +1,15 @@
-package br.edu.ifsp.dmo.ambientum
+package br.edu.ifsp.dmo.ambientum.ui.monitor
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import br.edu.ifsp.dmo.ambientum.R
 import br.edu.ifsp.dmo.ambientum.adapter.CarouselAdapter
 import br.edu.ifsp.dmo.ambientum.databinding.FragmentMonitorBinding
-import br.edu.ifsp.dmo.ambientum.model.CarouselItem
+import br.edu.ifsp.dmo.ambientum.data.model.CarouselItem
+import br.edu.ifsp.dmo.ambientum.data.model.Quality
 
 class MonitorFragment : Fragment() {
 
@@ -34,12 +36,12 @@ class MonitorFragment : Fragment() {
 
     private fun configCarousel() {
         val mockItems = listOf(
-            CarouselItem("Montanha", R.color.black),
-            CarouselItem("Lago", R.drawable.default_image),
-            CarouselItem("Cidade", R.drawable.default_image)
+            CarouselItem("Montanha", R.color.black, "Belas montanhas", Quality.EXCELLENT),
+            CarouselItem("Lago", R.drawable.default_image, "O lago está ideal", Quality.GOOD),
+            CarouselItem("Cidade", R.drawable.default_image, "A cidade está moderada", Quality.MODERATE)
         )
 
-        adapter = CarouselAdapter(mockItems)
+        adapter = CarouselAdapter(mockItems, requireContext())
         binding.carouselViewPager.adapter = adapter
         binding.carouselViewPager.offscreenPageLimit = 3
 
