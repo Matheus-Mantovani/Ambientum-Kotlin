@@ -12,6 +12,7 @@
         android:layout_height="350dp"
         android:src="@drawable/default_image"
         app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/RoundedImageView" />
 

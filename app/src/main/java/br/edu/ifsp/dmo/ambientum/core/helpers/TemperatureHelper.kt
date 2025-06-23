@@ -7,13 +7,13 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.util.Log
 
-class PressaoHelper(private val context: Context, private val callback: Callback) : SensorEventListener {
+class TemperatureHelper(private val context: Context, private val callback: Callback) : SensorEventListener {
     private val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-    private val pressureSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)
-    val isPressureSensorAvailable: Boolean = pressureSensor != null
+    private val temperatureSensor = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE)
+    val isTemperatureSensorAvailable: Boolean = temperatureSensor != null
 
     fun start() {
-        pressureSensor?.let {
+        temperatureSensor?.let {
             sensorManager.registerListener(
                 this, it,
                 SensorManager.SENSOR_DELAY_NORMAL
@@ -27,14 +27,14 @@ class PressaoHelper(private val context: Context, private val callback: Callback
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.let {
-            val pressure = it.values[0]
-            callback.onPressureReading(pressure)
+            val temperature = it.values[0]
+            callback.onTemperatureReading(temperature)
         }
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
 
     interface Callback {
-        fun onPressureReading(pressure: Float)
+        fun onTemperatureReading(temperature: Float)
     }
 }
