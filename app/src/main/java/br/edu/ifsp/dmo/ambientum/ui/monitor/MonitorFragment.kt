@@ -28,7 +28,7 @@ class MonitorFragment : Fragment(), PressureHelper.Callback, LightHelper.Callbac
     private lateinit var humidityHelper: HumidityHelper
     private lateinit var temperatureHelper: TemperatureHelper
 
-    private val mockItems = hashMapOf(
+    private val carouselItems = hashMapOf(
         SensorConstants.SENSOR_PRESSURE to CarouselItem("Pressure", R.drawable.pressure_image, "Initial pressure", Quality.EXCELLENT),
         SensorConstants.SENSOR_LIGHT to CarouselItem("Light", R.drawable.light_image, "Initial light", Quality.EXCELLENT),
         SensorConstants.SENSOR_HUMIDITY to CarouselItem("Humidity", R.drawable.humidity_image, "Initial humidity", Quality.EXCELLENT),
@@ -50,31 +50,31 @@ class MonitorFragment : Fragment(), PressureHelper.Callback, LightHelper.Callbac
         humidityHelper = HumidityHelper(requireContext(), this)
         temperatureHelper = TemperatureHelper(requireContext(), this)
 
-        configCarousel()
+        configCarousel(carouselItems)
     }
 
     override fun onResume() {
         super.onResume()
 
-        if(pressureHelper.isPressureSensorAvailable) {
+        if(PressureHelper.isSensorAvailable(requireContext())) {
             pressureHelper.start()
         } else {
             simulatePressureReading()
         }
 
-        if(humidityHelper.isHumiditySensorAvailable) {
+        if(HumidityHelper.isSensorAvailable(requireContext())) {
             humidityHelper.start()
         } else {
             simulateHumidityReading()
         }
 
-        if(temperatureHelper.isTemperatureSensorAvailable) {
+        if(TemperatureHelper.isSensorAvailable(requireContext())) {
             temperatureHelper.start()
         } else {
             simulateTemperatureReading()
         }
 
-        if(lightHelper.isLightSensorAvailable) {
+        if(LightHelper.isSensorAvailable(requireContext())) {
             lightHelper.start()
         } else {
             simulateLightReading()
@@ -95,7 +95,7 @@ class MonitorFragment : Fragment(), PressureHelper.Callback, LightHelper.Callbac
         _binding = null
     }
 
-    private fun configCarousel() {
+    private fun configCarousel(mockItems: HashMap<String, CarouselItem>) {
         adapter = CarouselAdapter(mockItems.values.toList(), requireContext())
         binding.carouselViewPager.adapter = adapter
         binding.carouselViewPager.offscreenPageLimit = 3
@@ -139,7 +139,7 @@ class MonitorFragment : Fragment(), PressureHelper.Callback, LightHelper.Callbac
     }
 
     private fun updateCarouselItem(nome: String, desc: String, quality: Quality) {
-        mockItems[nome]?.let {
+        carouselItems[nome]?.let {
             it.desc = desc
             it.quality = quality
         }

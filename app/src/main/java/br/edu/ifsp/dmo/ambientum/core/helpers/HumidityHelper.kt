@@ -10,7 +10,13 @@ import android.util.Log
 class HumidityHelper(private val context: Context, private val callback: Callback) : SensorEventListener {
     private val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     private val humiditySensor = sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY)
-    val isHumiditySensorAvailable: Boolean = humiditySensor != null
+
+    companion object {
+        fun isSensorAvailable(context: Context): Boolean {
+            val sm = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+            return sm.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY) != null
+        }
+    }
 
     fun start() {
         humiditySensor?.let {

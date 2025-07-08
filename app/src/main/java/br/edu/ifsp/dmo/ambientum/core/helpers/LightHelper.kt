@@ -10,7 +10,13 @@ import android.util.Log
 class LightHelper(private val context: Context, private val callback: Callback) : SensorEventListener {
     private val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     private val lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
-    val isLightSensorAvailable: Boolean = lightSensor != null
+
+    companion object {
+        fun isSensorAvailable(context: Context): Boolean {
+            val sm = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+            return sm.getDefaultSensor(Sensor.TYPE_LIGHT) != null
+        }
+    }
 
     fun start() {
         lightSensor?.let {

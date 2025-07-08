@@ -2,6 +2,7 @@ package br.edu.ifsp.dmo.ambientum.ui.start
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.dmo.ambientum.databinding.ActivityStartBinding
 import br.edu.ifsp.dmo.ambientum.ui.login.LoginActivity
