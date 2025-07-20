@@ -114,34 +114,35 @@ class MonitorFragment : Fragment(), PressureHelper.Callback, LightHelper.Callbac
         val quality = getQuality(SensorConstants.SENSOR_PRESSURE, pressure)
         val desc = getDesc(SensorConstants.SENSOR_PRESSURE, quality)
 
-        updateCarouselItem(SensorConstants.SENSOR_PRESSURE, desc, quality)
+        updateCarouselItem(SensorConstants.SENSOR_PRESSURE, desc, quality, pressure)
     }
 
     override fun onLightReading(light: Float) {
         val quality = getQuality(SensorConstants.SENSOR_LIGHT, light)
         val desc = getDesc(SensorConstants.SENSOR_LIGHT, quality)
 
-        updateCarouselItem(SensorConstants.SENSOR_LIGHT, desc, quality)
+        updateCarouselItem(SensorConstants.SENSOR_LIGHT, desc, quality, light)
     }
 
     override fun onHumidityReading(humidity: Float) {
         val quality = getQuality(SensorConstants.SENSOR_HUMIDITY, humidity)
         val desc = getDesc(SensorConstants.SENSOR_HUMIDITY, quality)
 
-        updateCarouselItem(SensorConstants.SENSOR_HUMIDITY, desc, quality)
+        updateCarouselItem(SensorConstants.SENSOR_HUMIDITY, desc, quality, humidity)
     }
 
     override fun onTemperatureReading(temperature: Float) {
         val quality = getQuality(SensorConstants.SENSOR_TEMPERATURE, temperature)
         val desc = getDesc(SensorConstants.SENSOR_TEMPERATURE, quality)
 
-        updateCarouselItem(SensorConstants.SENSOR_TEMPERATURE, desc, quality)
+        updateCarouselItem(SensorConstants.SENSOR_TEMPERATURE, desc, quality, temperature)
     }
 
-    private fun updateCarouselItem(nome: String, desc: String, quality: Quality) {
+    private fun updateCarouselItem(nome: String, desc: String, quality: Quality, value: Float) {
         carouselItems[nome]?.let {
             it.desc = desc
             it.quality = quality
+            it.value = value
         }
     }
 

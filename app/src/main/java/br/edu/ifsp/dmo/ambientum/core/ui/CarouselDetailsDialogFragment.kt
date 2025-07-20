@@ -11,6 +11,7 @@ import br.edu.ifsp.dmo.ambientum.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import br.edu.ifsp.dmo.ambientum.databinding.DialogCarouselDetailsBinding
 import br.edu.ifsp.dmo.ambientum.data.model.CarouselItem
+import br.edu.ifsp.dmo.ambientum.util.SensorConstants
 
 class CarouselDetailsDialogFragment(
     private val item: CarouselItem
@@ -33,7 +34,16 @@ class CarouselDetailsDialogFragment(
         val background = container.background.mutate() as GradientDrawable
         val borderColor = ContextCompat.getColor(requireContext(), item.quality.colorResId)
 
-        binding.txtTitle.text = item.title
+        val unit = when (item.title) {
+            SensorConstants.SENSOR_TEMPERATURE -> "°C"
+            SensorConstants.SENSOR_HUMIDITY -> "%"
+            SensorConstants.SENSOR_LIGHT -> "lux"
+            SensorConstants.SENSOR_PRESSURE -> "hPa"
+            else -> ""
+        }
+
+        val valueText = item.value?.let { String.format("%.1f %s", it, unit) } ?: "N/A"
+        binding.txtTitle.text = "${item.title} ($valueText)"
         binding.txtDesc.text = item.desc
         binding.txtQuality.text = "Quality: ${item.quality.label}"
         binding.imgItem.setImageResource(item.imageResId)
