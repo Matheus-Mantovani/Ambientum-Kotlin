@@ -27,4 +27,6 @@ Ao clicar em **Details**, o usuário pode visualizar uma descrição completa, a
 
 📺 [Clique aqui para assistir ao vídeo](https://drive.google.com/file/d/1YmvnoLZGthY8tfcIy5abYqFLkI-G5Y1P/view?usp=sharing)  
 
+## 📥 Download
+
 📦 [Download APK](https://drive.google.com/file/d/1tr910iCeySbplw_RP-SKoGlH4P5_GpCj/view?usp=sharing)
